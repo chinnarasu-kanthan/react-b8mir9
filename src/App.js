@@ -1,11 +1,15 @@
 import React from "react";
-import "./style.css";
-
-export default function App() {
+import { Container } from "@mui/material";
+import  Dashboard  from "./Dashboard";
+function App() {
   return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
-    </div>
+    <React.Fragment>
+      <Container max-Width="sm">
+        <Dashboard />
+      </Container>
+
+    </React.Fragment>
   );
 }
+
+export default App;
