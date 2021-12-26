@@ -1,13 +1,18 @@
-import React from "react";
-import { Container } from "@mui/material";
-import  Dashboard  from "./Dashboard";
+import React from 'react';
+import "./style.css";
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+import CssBaseline from '@mui/material/CssBaseline';
+import Dashboard from './Dashboard';
 function App() {
   return (
     <React.Fragment>
-      <Container max-Width="sm">
-        <Dashboard />
+      <Container className="container-dashboard" maxWidth="100%" sx={{ pl: 0,pr:0 }}>
+        <Box sx={{ display: 'block' }}>
+          <CssBaseline />
+          <Dashboard />
+        </Box>
       </Container>
-
     </React.Fragment>
   );
 }
