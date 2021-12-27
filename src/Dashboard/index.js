@@ -40,7 +40,7 @@ useEffect(() => {
           <StackedChart />
         </Grid>
         <Grid item sm={12} md={6}>
-          <BubbleChart />
+         <BubbleChart />
         </Grid>
       </Grid>
     </div>
