@@ -9,6 +9,18 @@ export const data = {
   labels: "",
   datasets: [],
 };
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'top',
+    },
+    title: {
+      display: true,
+      text: 'Pie Chart',
+    },
+  },
+};
 
 export default function PieChart() {
   const [chart,setChart] = useState(data);
@@ -17,5 +29,5 @@ export default function PieChart() {
   useEffect(() => {
     setChart(chartData.chartList[0])
   }, [chart]);
-  return <Pie data={chart} />;
+  return <Pie options={options} data={chart} />;
 }

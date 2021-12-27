@@ -24,7 +24,7 @@ export const options = {
   plugins: {
     title: {
       display: true,
-      text: ' Bar Chart - Stacked',
+      text: ' Bar Chart - Bar and Line',
     },
   },
   responsive: true,
@@ -39,9 +39,28 @@ export const options = {
 };
 
 
+const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+
 export const data = {
-  "labels" : "",
-  datasets: [],
+  labels,
+  datasets: [
+    {
+      type: 'line',
+      label: 'Dataset 1',
+      borderColor: 'rgb(255, 99, 132)',
+      borderWidth: 2,
+      fill: false,
+      "data": [33, 53, 85, 41, 44, 65],
+    },
+    {
+      type: 'bar',
+      label: 'Dataset 2',
+      backgroundColor: 'rgb(75, 192, 192)',
+      "data": [33, 53, 85, 41, 44, 65],
+      borderColor: 'white',
+      borderWidth: 2,
+    }
+  ],
 };
 
 export default function StackedChart() {
@@ -51,5 +70,5 @@ export default function StackedChart() {
   useEffect(() => {
     setChart(chartData.chartList[0])
   }, [chart]);
-  return <Bar options={options} data={chart} />;
+  return <Bar options={options} data={data} />;
 }

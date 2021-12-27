@@ -10,6 +10,19 @@ export const data = {
   datasets: [],
 };
 
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'top',
+    },
+    title: {
+      display: true,
+      text: 'DonutChart',
+    },
+  },
+};
+
 
 export default function DonutChart() {
   const [chart,setChart] = useState(data);
@@ -18,5 +31,5 @@ export default function DonutChart() {
   useEffect(() => {
     setChart(chartData.chartList[0])
   }, [chart]);
-  return <Doughnut data={chart} />;
+  return <Doughnut options={options} data={chart} />;
 }
