@@ -40,7 +40,7 @@ export const options = {
 
 
 export const data = {
-  labels:"",
+  "labels" : "",
   datasets: [],
 };
 

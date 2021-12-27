@@ -6,6 +6,7 @@ import BarChart from '../Components/Charts/BarChart';
 import PieChart from '../Components/Charts/PieChart';
 import DonutChart from '../Components/Charts/DonutChart';
 import StackedChart from '../Components/Charts/StackedChart';
+import BubbleChart from '../Components/Charts/BubbleChart';
 import { Api } from "../Api"
 import { useDispatch, useSelector } from 'react-redux';
 import ActionCreators from "../ActionCreators";
@@ -37,6 +38,9 @@ useEffect(() => {
         </Grid>
         <Grid item sm={12} md={6}>
           <StackedChart />
+        </Grid>
+        <Grid item sm={12} md={6}>
+          <BubbleChart />
         </Grid>
       </Grid>
     </div>
