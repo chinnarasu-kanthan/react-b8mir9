@@ -7,8 +7,8 @@ const initialState = {
 function chartReducer(state = initialState, action) {
    
   switch (action.type) {
-      case 'LOAD_CHART':
-          return { ...state, chartList:[], error: false, loading: true }
+      case 'SET_CHART':
+          return { ...state, chartList:action.payload, error: false, loading: true }
       case 'GET_CHART':
         return { ...state, chartList: action.payload, error: false, loading: false }
       case 'ERROR_CHART':
