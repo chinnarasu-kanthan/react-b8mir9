@@ -1,17 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import Grid from '@mui/material/Grid';
-import Header from '../Components/Header';
-import LineChart from '../Components/Charts/LineChart';
-import BarChart from '../Components/Charts/BarChart';
-import PieChart from '../Components/Charts/PieChart';
-import DonutChart from '../Components/Charts/DonutChart';
-import StackedChart from '../Components/Charts/StackedChart';
-import BubbleChart from '../Components/Charts/BubbleChart';
 import { Api } from "../Api"
 import { useDispatch, useSelector } from 'react-redux';
 import ActionCreators from "../ActionCreators";
-
-
+import Header from '../Components/Header';
+const LineChart = React.lazy(() => import('../Components/Charts/LineChart'));const BarChart = React.lazy(() => import('../Components/Charts/BarChart'));const PieChart = React.lazy(() => import('../Components/Charts/PieChart'));const DonutChart = React.lazy(() => import('../Components/Charts/DonutChart'));
+const StackedChart = React.lazy(() => import('../Components/Charts/StackedChart'));
+const BubbleChart = React.lazy(() => import('../Components/Charts/BubbleChart'));
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -22,6 +17,7 @@ useEffect(() => {
 }, [dispatch])
   return (
     <div>
+      <Suspense fallback={<div>Loading...</div>}>
       <Header />
       <Grid container spacing={12} sx={{ pl: 15,pr:15 }}>
         <Grid item xs={12} md={6}>
@@ -43,6 +39,7 @@ useEffect(() => {
          <BubbleChart />
         </Grid>
       </Grid>
+      </Suspense>
     </div>
   );
 };
