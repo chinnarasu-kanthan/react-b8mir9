@@ -19,6 +19,7 @@ export const options = {
   },
 };
 
+
 export const data = {
   datasets: [
     {
@@ -29,14 +30,6 @@ export const data = {
         r: faker.datatype.number({ min: 5, max: 20 }),
       })),
       backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-    {
-      type: 'line',
-      label: 'Dataset 1',
-      borderColor: 'rgb(255, 99, 132)',
-      borderWidth: 2,
-      fill: false,
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
     },
     {
       label: 'Blue dataset',
