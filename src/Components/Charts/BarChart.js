@@ -1,22 +1,23 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import Box from '@mui/material//Box';
 
-
+import { useDispatch, useSelector } from 'react-redux';
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend
@@ -30,34 +31,25 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'Chart.js Bar Chart',
+      text: 'Line Chart',
     },
   },
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: [33, 53, 85, 41, 44, 65],
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-    {
-      label: 'Dataset 2',
-      data: [33, 25, 35, 51, 54, 76],
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-    },
-  ],
-};
+export const data =   {
+  "labels" : "",
+  "datasets" : []
+}
 
 
 export default function BarChart() {
+  const [chart,setChart] = useState(data);
+  const chartData = useSelector((state) => state.chartData);
+  
+  useEffect(() => {
+    setChart(chartData.chartList[0])
+  }, [chart]);
   return (
-    <Box  sx={{ my: 4 }}>
-    <Bar options={options} data={data} />
-    </Box>);
-  ;
+    <Bar options={options} data={chart} />
+  );
 }

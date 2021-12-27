@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -36,19 +36,20 @@ export const options = {
   },
 };
 
+export const data =   {
+  "labels" : "",
+  "datasets" : []
+}
 
 
 export default function LineChart() {
-  const [chart,setChart] = [];
+  const [chart,setChart] = useState(data);
   const chartData = useSelector((state) => state.chartData);
-  console.log(data);
-  useEffect(() => {
   
-    chart=chartData.chartList[0]
+  useEffect(() => {
+    setChart(chartData.chartList[0])
   }, [chart]);
   return (
-    <Box sx={{ my: 4 }}>
-      <Line options={options} data={chart} />
-    </Box>
+    <Line options={options} data={chart} />
   );
 }
