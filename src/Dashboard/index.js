@@ -3,6 +3,8 @@ import Grid from '@mui/material/Grid';
 import Header from '../Components/Header';
 import LineChart from '../Components/Charts/LineChart';
 import BarChart from '../Components/Charts/BarChart';
+import PieChart from '../Components/Charts/PieChart';
+import DonutChart from '../Components/Charts/DonutChart';
 import { Api } from "../Api"
 import { useDispatch, useSelector } from 'react-redux';
 import ActionCreators from "../ActionCreators";
@@ -25,6 +27,12 @@ useEffect(() => {
         </Grid>
         <Grid item xs={12} md={6}>
           <BarChart />
+        </Grid>
+        <Grid item sm={12} md={6}>
+          <PieChart />
+        </Grid>
+        <Grid item sm={12} md={6}>
+          <DonutChart />
         </Grid>
       </Grid>
     </div>
