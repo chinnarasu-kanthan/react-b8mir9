@@ -10,7 +10,6 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import Box from '@mui/material//Box';
 import { useDispatch, useSelector } from 'react-redux';
 
 ChartJS.register(
