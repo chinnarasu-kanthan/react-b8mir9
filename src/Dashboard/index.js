@@ -5,6 +5,7 @@ import LineChart from '../Components/Charts/LineChart';
 import BarChart from '../Components/Charts/BarChart';
 import PieChart from '../Components/Charts/PieChart';
 import DonutChart from '../Components/Charts/DonutChart';
+import StackedChart from '../Components/Charts/StackedChart';
 import { Api } from "../Api"
 import { useDispatch, useSelector } from 'react-redux';
 import ActionCreators from "../ActionCreators";
@@ -21,7 +22,7 @@ useEffect(() => {
   return (
     <div>
       <Header />
-      <Grid container spacing={24}>
+      <Grid container spacing={12} sx={{ pl: 15,pr:15 }}>
         <Grid item xs={12} md={6}>
           <LineChart />
         </Grid>
@@ -33,6 +34,9 @@ useEffect(() => {
         </Grid>
         <Grid item sm={12} md={6}>
           <DonutChart />
+        </Grid>
+        <Grid item sm={12} md={6}>
+          <StackedChart />
         </Grid>
       </Grid>
     </div>
