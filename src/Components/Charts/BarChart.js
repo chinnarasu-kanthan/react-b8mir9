@@ -9,6 +9,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import   "chartjs-plugin-dragdata"
 import { Bar } from 'react-chartjs-2';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,17 +24,22 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top',
-    },
-    title: {
-      display: true,
-      text: 'Bar Chart',
-    },
+const options = {
+  tooltips: {enabled: true},
+  
+  legend:{
+  display: false
   },
+  dragData: true,
+  onDragStart: function (e) {
+    console.log(e)
+  },
+  onDrag: function (e, datasetIndex, index, value) {
+    console.log(datasetIndex, index, value)
+  },
+  onDragEnd: function (e, datasetIndex, index, value) {
+    console.log(datasetIndex, index, value)
+  }
 };
 
 export const data =   {
