@@ -8,7 +8,7 @@ function App() {
   return (
     <React.Fragment>
       <Container className="container-dashboard" maxWidth="100%" sx={{ pl: 0,pr:0 }}>
-        <Box sx={{ display: 'block' }}>
+        <Box>
           <CssBaseline />
           <Dashboard />
         </Box>

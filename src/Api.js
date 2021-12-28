@@ -4,7 +4,7 @@ export const Api = [
     "datasets" : [
       {
         "label": "Dataset 1",
-        "data": [33, 53, 85, 41, 44, 65],
+        "data": [33, 53, 85, 41, 44, 65, 100],
         "borderColor": "rgb(255, 99, 132)",
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
