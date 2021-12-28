@@ -31,7 +31,6 @@ export const options = {
     },
     dragData: true,
     onDragStart: function (e) {
-      alert();
       console.log(e)
     },
     onDrag: function (e, datasetIndex, index, value) {

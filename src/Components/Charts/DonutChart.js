@@ -18,11 +18,10 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'Line Chart',
+      text: 'Donut Chart',
     },
-    dragData: true,
+    dragData: false,
     onDragStart: function (e) {
-      alert();
       console.log(e)
     },
     onDrag: function (e, datasetIndex, index, value) {
