@@ -22,10 +22,24 @@ ChartJS.register(
 
 export const options = {
   plugins: {
+    legend: {
+      position: 'top',
+    },
     title: {
       display: true,
-      text: ' Bar Chart - Bar and Line',
+      text: 'Line Chart',
     },
+    dragData: true,
+    onDragStart: function (e) {
+      alert();
+      console.log(e)
+    },
+    onDrag: function (e, datasetIndex, index, value) {
+      console.log(datasetIndex, index, value)
+    },
+    onDragEnd: function (e, datasetIndex, index, value) {
+      console.log(datasetIndex, index, value)
+    }
   },
   responsive: true,
   scales: {

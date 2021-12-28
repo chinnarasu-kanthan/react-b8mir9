@@ -10,6 +10,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import  dragData  from  "chartjs-plugin-dragdata";
 import { useDispatch, useSelector } from 'react-redux';
 
 ChartJS.register(
@@ -19,7 +20,8 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  dragData
 );
 
 export const options = {
@@ -32,7 +34,19 @@ export const options = {
       display: true,
       text: 'Line Chart',
     },
+    dragData: true,
+    onDragStart: function (e) {
+      alert();
+      console.log(e)
+    },
+    onDrag: function (e, datasetIndex, index, value) {
+      console.log(datasetIndex, index, value)
+    },
+    onDragEnd: function (e, datasetIndex, index, value) {
+      console.log(datasetIndex, index, value)
+    }
   },
+ 
 };
 
 export const data =   {

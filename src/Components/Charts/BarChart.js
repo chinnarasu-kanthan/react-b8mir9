@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,7 +9,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import   "chartjs-plugin-dragdata"
+import dragData from 'chartjs-plugin-dragdata';
 import { Bar } from 'react-chartjs-2';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,41 +21,44 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  dragData
 );
-
-const options = {
-  tooltips: {enabled: true},
-  
-  legend:{
-  display: false
-  },
-  dragData: true,
-  onDragStart: function (e) {
-    console.log(e)
-  },
-  onDrag: function (e, datasetIndex, index, value) {
-    console.log(datasetIndex, index, value)
-  },
-  onDragEnd: function (e, datasetIndex, index, value) {
-    console.log(datasetIndex, index, value)
-  }
+export const data = {
+  labels: '',
+  datasets: [],
 };
 
-export const data =   {
-  "labels" : "",
-  "datasets" : []
-}
-
-
+console.log(dragData + 'dragData');
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'top',
+    },
+    title: {
+      display: true,
+      text: 'Line Chart',
+    },
+    dragData: true,
+    onDragStart: function (e) {
+      console.log(e)
+    },
+    onDrag: function (e, datasetIndex, index, value) {
+      console.log(datasetIndex, index, value)
+    },
+    onDragEnd: function (e, datasetIndex, index, value) {
+      console.log(datasetIndex, index, value)
+    }
+  },
+ 
+};
 export default function BarChart() {
-  const [chart,setChart] = useState(data);
+  const [chart, setChart] = useState(data);
   const chartData = useSelector((state) => state.chartData);
-  
+
   useEffect(() => {
-    setChart(chartData.chartList[0])
+    setChart(chartData.chartList[0]);
   }, [chart]);
-  return (
-    <Bar options={options} data={chart} />
-  );
+  return <Bar options={options} data={chart} />;
 }

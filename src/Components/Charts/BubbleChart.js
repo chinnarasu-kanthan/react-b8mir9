@@ -23,8 +23,19 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'Bubble Chart',
+      text: 'Line Chart',
     },
+    dragData: true,
+    onDragStart: function (e) {
+      alert();
+      console.log(e)
+    },
+    onDrag: function (e, datasetIndex, index, value) {
+      console.log(datasetIndex, index, value)
+    },
+    onDragEnd: function (e, datasetIndex, index, value) {
+      console.log(datasetIndex, index, value)
+    }
   },
 };
 
