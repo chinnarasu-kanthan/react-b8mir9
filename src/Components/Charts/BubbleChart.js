@@ -40,7 +40,7 @@ export const options = {
 };
 
 
-export const data = {
+export var data = {
   datasets: [
     {
       label: 'Blue dataset',
