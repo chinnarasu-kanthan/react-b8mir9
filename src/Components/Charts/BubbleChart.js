@@ -23,7 +23,7 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'Line Chart',
+      text: 'Bubble Chart',
     },
     dragData: true,
     onDragStart: function (e) {
