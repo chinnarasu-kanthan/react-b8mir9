@@ -12,12 +12,8 @@ const LineChart = React.lazy(() => import('../Components/Charts/LineChart'));
 const BarChart = React.lazy(() => import('../Components/Charts/BarChart'));
 const PieChart = React.lazy(() => import('../Components/Charts/PieChart'));
 const DonutChart = React.lazy(() => import('../Components/Charts/DonutChart'));
-const StackedChart = React.lazy(() =>
-  import('../Components/Charts/StackedChart')
-);
-const BubbleChart = React.lazy(() =>
-  import('../Components/Charts/BubbleChart')
-);
+const StackedChart = React.lazy(() => import('../Components/Charts/StackedChart'));
+const BubbleChart = React.lazy(() => import('../Components/Charts/BubbleChart'));
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
