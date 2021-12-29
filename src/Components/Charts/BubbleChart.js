@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   Chart as ChartJS,
   LinearScale,
@@ -7,7 +7,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bubble } from 'react-chartjs-2';
-import faker from 'faker';
+import {  useSelector } from 'react-redux';
 
 ChartJS.register(LinearScale, PointElement, Tooltip, Legend);
 
@@ -44,17 +44,35 @@ export const data = {
   datasets: [
     {
       label: 'Blue dataset',
-      data: Array.from([33, 53, 85, 41, 44, 65, 100], (s) => ({
-        x: s,
-        y: s,
-        r:20
-      
-      })),
+      data:[],
       backgroundColor: 'rgba(53, 162, 235, 0.5)',
     },
   ],
 };
 
 export default function BubbleChart() {
+  const [chart,setChart] = useState(data);
+ 
+  const chartData = useSelector((state) => state.chartData);
+  
+  useEffect(() => {
+   
+    data  = {
+      datasets: [
+        {
+          label: 'Blue dataset',
+          data:Array.from(chartData.chartList[0].datasets[0].data, (s) => ({
+            x: s,
+            y: s,
+            r:20
+          
+          })),
+          backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        },
+      ],
+    };
+    setChart(chartData.chartList[0])
+  }, [data]);
+  console.log(JSON.stringify(data)); 
   return <Bubble options={options} data={data} />;
 }

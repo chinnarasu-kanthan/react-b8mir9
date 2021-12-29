@@ -2,6 +2,9 @@ h1,
 p {
   font-family: Lato;
 }
+body{
+  margin: 0%;
+}
 @media (min-width: 600px){
   .container-dashboard {
     padding-left: 0px!important;

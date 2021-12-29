@@ -9,7 +9,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 
 ChartJS.register(
   CategoryScale,
@@ -27,7 +27,7 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'Line Chart',
+      text: 'Stacked Chart',
     },
     dragData: true,
     onDragStart: function (e) {

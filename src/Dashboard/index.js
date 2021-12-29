@@ -7,6 +7,7 @@ import { Api } from '../Api';
 import { useDispatch } from 'react-redux';
 import ActionCreators from '../ActionCreators';
 import Header from '../Components/Header';
+import Container from '@mui/material/Container';
 const LineChart = React.lazy(() => import('../Components/Charts/LineChart'));
 const BarChart = React.lazy(() => import('../Components/Charts/BarChart'));
 const PieChart = React.lazy(() => import('../Components/Charts/PieChart'));
@@ -27,32 +28,32 @@ const Item = styled(Paper)(({ theme }) => ({
 function FormRow() {
   return (
     <React.Fragment>
-      <Grid item xs={6}>
+      <Grid item xs={12} sm={6} >
         <Item>
           <LineChart />
         </Item>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={12} sm={6}>
         <Item>
           <BarChart />
         </Item>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={12} sm={6}>
         <Item>
           <PieChart />
         </Item>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={12} sm={6}>
         <Item>
           <DonutChart />
         </Item>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={12} sm={6}>
         <Item>
           <StackedChart />
         </Item>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={12} sm={6}>
         <Item>
           <BubbleChart />
         </Item>
@@ -70,14 +71,18 @@ const Dashboard = () => {
   return (
     <div>
       <Suspense fallback={<div>Loading...</div>}>
+      <Container className="container-dashboard" maxWidth="100%">
         <Header />
-        <Box sx={{ flexGrow: 1 }}>
+        </Container>
+        <Container>
+        <Box component="span" sx={{ p: 2,}}>
           <Grid container spacing={1}>
             <Grid container item spacing={2}>
               <FormRow />
             </Grid>
           </Grid>
         </Box>
+        </Container>
       </Suspense>
     </div>
   );
