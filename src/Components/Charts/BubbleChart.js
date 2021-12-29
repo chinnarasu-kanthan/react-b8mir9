@@ -27,7 +27,7 @@ export const options = {
     },
     dragData: true,
     onDragStart: function (e) {
-      alert();
+      
       console.log(e)
     },
     onDrag: function (e, datasetIndex, index, value) {
@@ -44,10 +44,11 @@ export const data = {
   datasets: [
     {
       label: 'Blue dataset',
-      data: Array.from({ length: 50 }, () => ({
-        x: [5],
-        y: faker.datatype.number({ min: -100, max: 100 }),
-        r: faker.datatype.number({ min: 5, max: 20 }),
+      data: Array.from([33, 53, 85, 41, 44, 65, 100], (s) => ({
+        x: s,
+        y: s,
+        r:20
+      
       })),
       backgroundColor: 'rgba(53, 162, 235, 0.5)',
     },
