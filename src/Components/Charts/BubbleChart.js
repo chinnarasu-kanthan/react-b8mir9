@@ -45,7 +45,7 @@ export const data = {
     {
       label: 'Blue dataset',
       data: Array.from({ length: 50 }, () => ({
-        x: [33, 53, 85, 41, 44, 65, 100])),
+        x: [5],
         y: faker.datatype.number({ min: -100, max: 100 }),
         r: faker.datatype.number({ min: 5, max: 20 }),
       })),
